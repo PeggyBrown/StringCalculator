@@ -1,5 +1,7 @@
 package com.szkolatestow.stringcalculator
 
+import org.amshove.kluent.`should be equal to`
+import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import kotlin.test.assertEquals
@@ -31,7 +33,7 @@ class StringCalculatorTest {
     fun shouldIgnoreSpaces() {
         val calc = StringCalculator()
         val result = calc.add("1 , 2  ")
-        assertEquals(3, result)
+        result `should be equal to` 3
     }
 
     @Test
@@ -47,5 +49,6 @@ class StringCalculatorTest {
         val calc = StringCalculator()
         val result = calc.subtract("")
         assertEquals(0, result)
+
     }
 }

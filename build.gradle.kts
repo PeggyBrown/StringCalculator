@@ -12,6 +12,9 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    // https://mvnrepository.com/artifact/org.amshove.kluent/kluent
+    testImplementation("org.amshove.kluent:kluent:1.73")
+
 }
 
 tasks.test {
