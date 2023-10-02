@@ -1,12 +1,13 @@
 package com.szkolatestow.stringcalculator
 
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import kotlin.test.assertEquals
 
 class StringCalculatorTest {
 
     @Test
-    fun shouldReturnZeroWhenNoNumbersProvided() {
+    fun shouldReturnZeroWhenNoNumbersProvidedInAddition() {
         val calc = StringCalculator()
         val result = calc.add("")
         assertEquals(0, result)
@@ -31,5 +32,20 @@ class StringCalculatorTest {
         val calc = StringCalculator()
         val result = calc.add("1 , 2  ")
         assertEquals(3, result)
+    }
+
+    @Test
+    fun shouldNotAcceptNonNumericCharacters() {
+        val calc = StringCalculator()
+        assertThrows<IllegalCharacterException>{
+            calc.add("1 ,(")
+        }
+    }
+
+    @Test
+    fun shouldReturnZeroWhenNoNumbersProvidedInSubtraction() {
+        val calc = StringCalculator()
+        val result = calc.subtract("")
+        assertEquals(0, result)
     }
 }

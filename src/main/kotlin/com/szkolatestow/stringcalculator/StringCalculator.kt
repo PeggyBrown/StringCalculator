@@ -4,13 +4,17 @@ class StringCalculator {
     fun add(numbers: String) : Int {
         return when (numbers) {
             "" -> 0
-            else -> sumTrimmedNumbers(numbers);
+            else -> sumTrimmedNumbers(numbers)
         }
     }
 
     private fun sumTrimmedNumbers(numbers: String) = numbers
         .split(",")
         .sumOf { Integer.parseInt(it.trim()) }
+
+    fun subtract(x: String): Int {
+        throw Exception("Not implemented!")
+    }
 
 }
 
