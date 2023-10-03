@@ -10,19 +10,19 @@ class StringCalculatorTest {
     private val calc: StringCalculator = StringCalculator()
 
     @Test
-    fun shouldReturnZeroWhenNoNumbersProvidedInAddition() {
+    fun `should return zero when no numbers provided in addition`() {
         val result = calc.add("")
         assertEquals(0, result)
     }
 
     @Test
-    fun shouldReturnTheNumberWhenOneNumberProvided() {
+    fun `should return the number when one number provided`() {
         val result = calc.add("1")
         assertEquals(1, result)
     }
 
     @Test
-    fun shouldReturnTheSumOfTwoNumbersWhenTwoNumbersProvided() {
+    fun `should return the sum of two numbers when two numbers provided`() {
         //given
         val calc = StringCalculator()
         //when
@@ -32,23 +32,22 @@ class StringCalculatorTest {
     }
 
     @Test
-    fun shouldIgnoreSpaces() {
+    fun `should ignore spaces`() {
         val result = calc.add("1 , 2  ")
         result `should be equal to` 3
     }
 
     @Test
-    fun shouldNotAcceptNonNumericCharacters() {
+    fun `should not accept non numeric characters`() {
         assertThrows<IllegalCharacterException>{
             calc.add("1 ,(")
         }
     }
 
     @Test
-    fun shouldReturnZeroWhenNoNumbersProvidedInSubtraction() {
+    fun `should return zero when no numbers provided in subtraction`() {
         val calc = StringCalculator()
         val result = calc.subtract("")
         assertEquals(0, result)
-
     }
 }
